@@ -1,37 +1,25 @@
-import { useHelper, OrbitControls } from '@react-three/drei'
+import { Center, OrbitControls } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
-import { useRef } from 'react'
-import * as THREE from 'three'
 import { Model } from './Model'
+import Lights from './Lights.jsx'
 
 export default function Experience() 
 {
 
-    const directionalLight = useRef()
-    useHelper(directionalLight, THREE.DirectionalLightHelper, 1, 'red')
-
-    return <>
-         
+    return <> 
         <Perf position="top-left" /> 
-        <OrbitControls makeDefault maxPolarAngle={Math.PI / 2}/>
+        <OrbitControls makeDefault maxPolarAngle={Math.PI / 2.5}/>
 
+        <color attach="background" args={["#ececec"]} />
 
-        <directionalLight
-            ref={ directionalLight }
-            castShadow 
-            position={ [ 1, 2, 3 ] } 
-            intensity={ 4.5 }
-            shadow-normalBias={ 0.04 }
-        />
-        <ambientLight intensity={1.5} />
+        <Lights />
 
-
+        <Center>
         <Model />
-
         <mesh receiveShadow rotation-x={ - Math.PI * 0.5 } scale={ 50 }>
             <planeGeometry />
-            <meshStandardMaterial color="#a7f070" />
+            <meshStandardMaterial color="#ececec" />
         </mesh>
-
+        </Center>
     </>
 }

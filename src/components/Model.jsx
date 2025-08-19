@@ -52,3 +52,4 @@ export function Model(props) {
 }
 
 useGLTF.preload('/model-whit-materials.glb')
+
