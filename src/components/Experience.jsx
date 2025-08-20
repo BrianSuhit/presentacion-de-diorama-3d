@@ -1,4 +1,4 @@
-import { Center, OrbitControls } from '@react-three/drei'
+import { BakeShadows, Center, OrbitControls } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
 import { Model } from './Model'
 import Lights from './Lights.jsx'
@@ -16,10 +16,11 @@ export default function Experience()
 
         <Center>
         <Model />
-        <mesh receiveShadow rotation-x={ - Math.PI * 0.5 } scale={ 50 }>
+        <mesh receiveShadow rotation-x={ - Math.PI * 0.5 } scale={ 20 }>
             <planeGeometry />
             <meshStandardMaterial color="#ececec" />
         </mesh>
         </Center>
+        <BakeShadows />
     </>
 }

@@ -5,15 +5,15 @@ import * as THREE from 'three'
 export default function Lights()
 {
     const directionalLight = useRef()
-    useHelper(directionalLight, THREE.DirectionalLightHelper, 1, 'red')
-
+    useHelper(directionalLight, THREE.DirectionalLightHelper, 1, 'blue')
+    
     return <>
     
         <directionalLight
             ref={ directionalLight }
             castShadow
             position={[5, 8, 5]}
-            intensity={ 4 }
+            intensity={ 4.5 }
             shadow-mapSize-width={1024}
             shadow-mapSize-height={1024}
             shadow-camera-near={0.1}
@@ -25,7 +25,7 @@ export default function Lights()
             shadow-bias={-0.0001}
             shadow-normalBias={ 0.04 }
         />
-        
+
         <ambientLight intensity={1.5} />
     </>
 }
