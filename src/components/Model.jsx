@@ -48,5 +48,3 @@ export function Model(props) {
 }
 
 useGLTF.preload('/diorama.glb')
-
-
