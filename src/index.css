@@ -9,3 +9,17 @@ body,
     height: 100vh;
     overflow: hidden;
 }
+
+.modal 
+{
+    position: fixed; /* Lo saca del flujo normal y lo posiciona relativo a la ventana */
+    top: 50%; /* Lo centra verticalmente */
+    left: 50%; /* Lo centra horizontalmente */
+    transform: translate(-50%, -50%); /* Ajuste fino para un centrado perfecto */
+    
+    padding: 2em;
+    background-color: white; /* Dale un fondo para que se vea */
+    border-radius: 8px;
+    transition: opacity 0.4s ease, backdrop-filter 0.4s ease;
+    z-index: 10;
+}
