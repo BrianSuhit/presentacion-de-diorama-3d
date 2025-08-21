@@ -10,16 +10,228 @@ body,
     overflow: hidden;
 }
 
+/* --- 1. Variables Globales (Root) --- */
+:root 
+{
+    --primary-color: #38b764;
+    --background-color: #ffffff;
+    --text-color: #333;
+    --text-light-color: #555;
+    --modal-overlay-color: rgba(0, 0, 0, 0.6);
+    --border-radius: 12px;
+}
+
+/* --- 2. Contenedor Principal del Modal (Overlay) --- */
 .modal 
 {
-    position: fixed; /* Lo saca del flujo normal y lo posiciona relativo a la ventana */
-    top: 50%; /* Lo centra verticalmente */
-    left: 50%; /* Lo centra horizontalmente */
-    transform: translate(-50%, -50%); /* Ajuste fino para un centrado perfecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--modal-overlay-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;  
+    animation: fadeIn 0.3s ease-out forwards;
+    scroll-behavior: smooth;
+    scrollbar-color: var(--primary-color) transparent;
+}
+
+/* --- 3. Contenido del Modal (La ventana) --- */
+.modal__content 
+{
+    background-color: var(--background-color);
+    padding: 2rem 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 650px;
+    max-height: 85vh; 
+    overflow-y: auto; 
+    position: relative;
+    animation: scaleUp 0.3s ease-out forwards;
+}
+
+/* --- 4. Animaciones (Apertura y Cierre) --- */
+@keyframes fadeIn 
+{
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleUp 
+{
+    from { transform: scale(0.9) translateY(20px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+@keyframes fadeOut 
+{
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes scaleDown 
+{
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(0.9); opacity: 0; }
+}
+
+
+/* --- 5. Estilos del Contenido Interno --- */
+.modal__header 
+{
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.modal__title 
+{
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.modal-section 
+{
+    margin-bottom: 2rem;
+}
+
+.modal-section__title 
+{
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
+}
+
+.modal-section__subtitle 
+{
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-section p 
+{
+    line-height: 1.6;
+    color: var(--text-light-color);
+}
+
+/* --- 6. Estilo de la Lista de Herramientas --- */
+.tool-list 
+{
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.75rem;
+}
+
+.tool-list__item 
+{
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #f7f7f7;
+    border-radius: 6px;
+}
+
+.tool-list__item::before 
+{
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+}
+
+/* --- 7. Botón de Cierre --- */
+.modal__close-button 
+{
+    position: absolute;
+    top: 15px;
+    right: 15px;
     
-    padding: 2em;
-    background-color: white; /* Dale un fondo para que se vea */
-    border-radius: 8px;
-    transition: opacity 0.4s ease, backdrop-filter 0.4s ease;
-    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    
+    background-color: #f1f1f1;
+    color: var(--text-light-color);
+    border: none;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modal__close-button:hover 
+{
+    background-color: var(--primary-color);
+    color: white;
+    transform: rotate(90deg);
+}
+
+/* --- 8. Estilo de Lista de Características (Modelado, etc.) --- */
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.feature-list__item {
+  position: relative;
+  padding-left: 25px; 
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--text-light-color);
+}
+
+.feature-list__item::before 
+{
+  content: '✔'; 
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.feature-list__item strong 
+{
+  color: var(--text-color);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 2px; 
+}
+
+code 
+{
+  background-color: #eef0f2;
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  border-radius: 6px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.feature-list__item code 
+{
+  color: var(--primary-color);
+  font-weight: 600; 
 }
