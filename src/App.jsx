@@ -4,10 +4,7 @@ import { StrictMode, useState } from 'react'
 
 export default function App() 
 {
-
   const [openModal, setOpenModal] = useState(null)
-
-    console.log("📌 Estado actual del modal:", openModal)
 
   return (
     <>
@@ -105,10 +102,14 @@ export default function App()
               </p>
             </section>
 
-
+            <section className="modal-section">
+              <h3 className='modal-section__title'>Despliegue</h3>
+              <p>
+                La aplicación fue desplegada en <strong>Netlify</strong> mediante <strong>GitHub</strong> para una disponibilidad global y un rendimiento excelente.
+              </p>
+            </section>
 
             <button className="modal__close-button" onClick={() => setOpenModal(null)}>×</button>
-
           </div>
         </div>
       )}

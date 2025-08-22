@@ -23,7 +23,6 @@ export default function InteractiveObject({ onSelect })
             rotation-y={-90}
             ref={tree}
             onClick={() => {
-                console.log("👉 Árbol clickeado")
                 onSelect("tree")
             }}
             onPointerEnter={() => setHovered(true, document.body.style.cursor = 'pointer')} 
