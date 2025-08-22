@@ -109,6 +109,17 @@ export default function App()
               </p>
             </section>
 
+            <footer className="modal__footer">
+              <a 
+                href="https://github.com/BrianSuhit/presentacion-de-diorama-3d" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="modal__repo-link"
+              >
+                Ver el código en GitHub
+              </a>
+            </footer>
+
             <button className="modal__close-button" onClick={() => setOpenModal(null)}>×</button>
           </div>
         </div>

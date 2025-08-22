@@ -15,6 +15,7 @@ body,
 {
     --primary-color: #38b764;
     --background-color: #ffffff;
+    --hover-color: #257179;
     --text-color: #333;
     --text-light-color: #555;
     --modal-overlay-color: rgba(0, 0, 0, 0.6);
@@ -234,4 +235,31 @@ code
 {
   color: var(--primary-color);
   font-weight: 600; 
+}
+
+.modal__footer 
+{
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+.modal__repo-link 
+{
+    display: inline-block; 
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.2s ease-out;
+}
+
+.modal__repo-link:hover 
+{
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
