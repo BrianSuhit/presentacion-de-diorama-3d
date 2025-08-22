@@ -1,18 +1,11 @@
-import { useHelper } from '@react-three/drei'
-import { useRef } from 'react'
-import * as THREE from 'three'
-
 export default function Lights()
 {
-    const directionalLight = useRef()
-    useHelper(directionalLight, THREE.DirectionalLightHelper, 1, 'blue')
-    
     return <>
     
         <directionalLight
-            ref={ directionalLight }
+
             castShadow
-            position={[5, 8, 5]}
+            position={[7.5, 6, 5]}
             intensity={ 3.5 }
             shadow-mapSize-width={1024}
             shadow-mapSize-height={1024}
