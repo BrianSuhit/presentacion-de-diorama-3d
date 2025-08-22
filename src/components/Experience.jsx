@@ -9,7 +9,6 @@ export default function Experience({setOpenModal})
 {
     return <> 
         <Perf position="top-left" /> 
-
         <Camera />
         <Lights />
         <Model />
